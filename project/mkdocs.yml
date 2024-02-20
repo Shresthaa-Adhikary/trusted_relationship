@@ -1,4 +1,5 @@
-site_name: My Docs
+site_name: Trusted relationship 
 nav:
-  - 'index.md'
-  - 'about.md'
+  - Home: 'index.md'
+  - User guide: 'about.md'
+
