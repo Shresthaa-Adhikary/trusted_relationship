@@ -47,22 +47,6 @@ Ensure that the user you're connecting as on the Linux server has appropriate pe
 ### Windows to Linux connection to different user
 
 <br>
-STEP 1:Login to different user using
-
-STEP 2:
-
-1. Log in to your Unix server using PuTTY 
-and enter Host Name
-2. Create the ~/.ssh directory if it doesn't exist:
-3. Append the contents of the public key (from PuTTYgen) to the ~/.ssh/authorized_keys file on the server.
-4. Make sure the ~/.ssh directory has proper permissions (700) and the authorized_keys file has the correct permissions (600).
-
-STEP 3:
-
-1.In the 'Connection' -> 'SSH' -> 'Auth' category, browse and select the private key file you saved .
-2.Save these settings if you want to use them again in the future.
-3.Click 'Open' to establish the SSH connection to the server for keyless authentication.
-
 
 
 
