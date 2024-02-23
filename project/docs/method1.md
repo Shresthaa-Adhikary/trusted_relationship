@@ -1,7 +1,11 @@
 
 ## Export Method
 
+<br>
+
 ### Windows to Linux connection to own user
+
+
 STEP 1:
 
 1.Launch PuTTYgen.
@@ -25,9 +29,20 @@ STEP 3:
 2.Save these settings if you want to use them again in the future.
 3.Click 'Open' to establish the SSH connection to the server for keyless authentication.
 
+<br>
+
 ### Windows to Linux connection to different user
+
+<br>
+
 
 ### Linux to Linux connection to own user
 
+<br>
+
+
 ### Linux to Linux connection to different user
+
+<br>
+
 

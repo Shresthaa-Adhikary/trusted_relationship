@@ -1,7 +1,11 @@
 
 ## Import Method
 
-### Windows to Linux connection to same user
+<br>
+
+
+## Windows to Linux connection to same user
+
 
 STEP 1:
 
@@ -16,8 +20,17 @@ I1.n the 'Connection' -> 'SSH' -> 'Auth' category, browse and select the private
 2.Save these settings if you want to use them again in the future.
 3.Click 'Open' to establish the SSH connection to the server for keyless authentication.
 
-### Windows to Linux connection to different user
+## Windows to Linux connection to different user
+
+<br>
+
 
 ### Linux to Linux connection to own user
 
+<br>
+
+
 ### Linux to Linux connection to different user
+
+<br>
+

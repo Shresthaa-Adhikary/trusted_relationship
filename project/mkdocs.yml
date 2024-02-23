@@ -1,0 +1,7 @@
+site_name: Trusted relationship
+ 
+nav:
+  - Home: 'index.md'
+  - About: 'about.md'
+  - Method1: 'method1.md'
+  - Method2: 'method2.md'
