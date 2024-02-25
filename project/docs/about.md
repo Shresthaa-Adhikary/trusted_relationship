@@ -6,7 +6,9 @@
 Establishing a trusted relationship between a client and server using SSH (Secure Shell) is highly useful for both Windows and Linux environments due to several reasons:
 
 ### Windows:
-Secure Remote Access: While SSH is not native to Windows, third-party SSH servers like OpenSSH for Windows can be installed to enable secure remote access using SSH. Establishing a trusted SSH relationship between Windows clients and servers provides a secure alternative to other remote access protocols like RDP (Remote Desktop Protocol).
+
+**Secure Remote Access:**
+ While SSH is not native to Windows, third-party SSH servers like OpenSSH for Windows can be installed to enable secure remote access using SSH. Establishing a trusted SSH relationship between Windows clients and servers provides a secure alternative to other remote access protocols like RDP (Remote Desktop Protocol).
 
 Interoperability: SSH is a widely adopted protocol supported by various operating systems, including Windows. Establishing SSH-based trusted relationships between Windows clients and servers promotes interoperability and seamless communication in heterogeneous environments.
 

@@ -180,6 +180,8 @@ ssh user@hostname
 * Make sure your private key (id_rsa) remains secure. Set the correct permissions on the private key file to restrict access:
  chmod 600 ~/.ssh/id_rsa
 
+ ![chmod](new2.03.JPG)
+
 By following these steps, you've generated an SSH key pair, added the public key to the destination machine, and established a trusted connection between the two Linux systems.
 
 
@@ -220,6 +222,8 @@ ssh-keygen -t rsa -b 2048
 * Ensure that each user's private key (id_rsa) remains secure by setting the correct permissions:
   chmod 600 ~/.ssh/id_rsa
 * This command ensures that only the owner has read and write permissions to the private key file.
+
+![chmod](new2.01.JPG)
 
 By following these steps, users can generate SSH keys, share their public keys with other users, and establish trusted connections between their accounts on Linux systems.
 
