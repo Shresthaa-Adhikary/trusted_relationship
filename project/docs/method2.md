@@ -19,14 +19,14 @@ To establish an SSH connection from a Linux server to a Windows client using PuT
 **2. Copy the Private Key to the Windows Client:**
 
 * Once the keys are generated, you'll need to copy the public key (id_rsa.pub) and paste it into the authorized_keys file in the .ssh directory using cat command.
-* You can use cat command to view and copy the private key to your Windows machine as a text file on Desktop.
+* Use cat command to view and copy the private key to your Windows machine as a text file.
 
 ![copy pu](copy_serverprivkey_user1.JPG)
 
 **3. Configure PuTTY on Windows:**
 
 * Open PuTTYgen (comes with PuTTY installation) on your Windows machine.
-* Click on the "Load" button and select the id_rsa.pub file you copied.
+* Click on the "Load" button and select the private key text file you copied.
 * Once the key is loaded, click on "Save private key" to save it in PuTTY's .ppk format.
 * Close PuTTYgen after saving the private key.
 
@@ -99,13 +99,13 @@ To establish an SSH connection from a Linux server to a Windows client using PuT
 **5. Test SSH Connection:**
 
 * Double-click the saved session in PuTTY to initiate the SSH connection.
-* PuTTY should now connect to your Windows client using the SSH key pair you generated and the specified username.
+* PuTTY should now connect your Windows client to the another username@hostname without password.
 
 
 ![user2 auth](user2_import_auth.JPG)
 
 
-That's it! You've established an SSH connection from your Linux server to your Windows client using PuTTY with a different user.
+That's it! You've established an SSH connection from you Windows client to linux server to another user.
 
 
 ## Linux to Linux connection to same user
