@@ -5,11 +5,12 @@
 
 ## Windows to Linux connection to same user
 
-To establish an SSH connection from a Windows client to Linux server, you'll need to follow these steps:
+To establish an SSH connection from a Windows client to Linux server with server keys, you'll need to follow these steps:
 
 **1. Generate SSH Key Pair on Linux Server:**
 
-* Open a terminal on your Linux server.
+* Open putty and login to destination linux server.
+* Change directory: cd .ssh/ .If not present :ssh localhost and follow the prompt. 
 * Run the following command to generate the SSH key pair:
   ssh-keygen -t rsa -b 1024
 * Follow the prompts to save the keys in the default directory (~/.ssh) or specify a custom location.
@@ -37,7 +38,7 @@ To establish an SSH connection from a Windows client to Linux server, you'll nee
 * Open PuTTY.
 * In the left-hand Category pane, navigate to Connection -> SSH -> Auth.
 * Click on the "Browse" button and select the private key file (id_rsa.ppk) you generated with PuTTYgen.
-* Go back to the Session category, enter the IP address or hostname of your Linux server in the "Host Name" field, and save the session.
+* Go back to the Session category, enter username@hostname or (IP address) of your Linux server in the "Host Name" field, and save the session.
 
 ![priv key](browse_user1_priv.JPG)
 
@@ -59,11 +60,12 @@ That's it! You've established an SSH connection from your Linux server to your W
 <br>
 
 
-To establish an SSH connection from a Windows client to Linux server to a different user, you'll need to follow these steps:
+To establish an SSH connection from a Windows client to Linux server to a different user with server keys, you'll need to follow these steps:
 
 **1. Generate SSH Key Pair on Linux Server:**
 
-* Open a terminal on your Linux server.
+* Log into the remote linux :ssh username@hostname or(IP address).
+*
 * Run the following command to generate the SSH key pair:
   ssh-keygen -t rsa -b 1024
 * Follow the prompts to save the keys in the default directory (~/.ssh).
@@ -73,7 +75,7 @@ To establish an SSH connection from a Windows client to Linux server to a differ
 **2. Copy the Private Key to the Windows Client:**
 
 * Once the keys are generated, you'll need to use cat command to copy the public key (id_rsa.pub) and paste it into the authorized_keys file of the .ssh directory.
-* Using cat command copy and paste the id_rsa private key to your Windows client as text file and save it on Desktop.
+* Using cat command copy and paste the id_rsa private key to your Windows client as text file.
 
 ![copy priv key](importprivkeyuser2.JPG)
 
@@ -91,15 +93,15 @@ To establish an SSH connection from a Windows client to Linux server to a differ
 * Open PuTTY.
 * In the left-hand Category pane, navigate to Connection -> SSH -> Auth.
 * Click on the "Browse" button and select the private key file (id_rsa.ppk) you generated with PuTTYgen.
-* Go back to the Session category, enter the IP address or hostname of your Windows client in the "Host Name"  field, and specify the username you want to connect with in the "Auto-login username" field.
-* Save the session.
+* Go back to the Session category, enter the username@hostname or (IP address) of the other user in the "Host Name" field.
+
 
 ![load user2 privkey](browse_user2_privkey.JPG)
 
 **5. Test SSH Connection:**
 
-* Double-click the saved session in PuTTY to initiate the SSH connection.
-* PuTTY should now connect your Windows client to the another username@hostname without password.
+* Click on open.
+* PuTTY should now connect your Windows client to the other linux user without the password.
 
 
 ![user2 auth](user2_import_auth.JPG)
@@ -111,12 +113,12 @@ That's it! You've established an SSH connection from you Windows client to linux
 ## Linux to Linux connection to same user
 
 <br>
-To establish a connection from your Linux client to a Linux server using SSH and key-based authentication for the same user account, you'll need to follow these steps:
+To establish a connection from your Linux client to a Linux server using SSH and key-based authentication to the same user, you'll need to follow these steps:
 
 **1. Generate SSH Key Pair on Server:**
 
-* Log in to your Linux server.
-* Open a terminal.
+* Log in to your Linux server with password.
+* Change directory:cd .ssh/. If not present. ssh localhost and follow the prompt.
 * Run the following command to generate an SSH key pair:
   ssh-keygen -t rsa -b 1024
 * Follow the prompts to generate the key pair. You can press Enter to accept the default file location and an optional passphrase for added security.
@@ -148,8 +150,8 @@ To establish a connection from your Linux server to a Linux client using SSH and
 
 **1. Generate SSH Key Pair on Server:**
 
-* Log in to your Linux server.
-* Open a terminal.
+* Log in to Linux server of another user with the user's password.
+* Change directory:cd .ssh/. If not present. ssh localhost and follow the prompt.
 * Run the following command to generate an SSH key pair:
   ssh-keygen -t rsa -b 1024
 * Follow the prompts to generate the key pair. You can press Enter to accept the default file location and an optional passphrase for added security.
@@ -159,7 +161,7 @@ To establish a connection from your Linux server to a Linux client using SSH and
 **2. Copy the Private Key to Client:**
 
 * Once the keys are generated, you'll need to use cat command to copy the public key (id_rsa.pub) and paste it into the authorized_keys file of the .ssh directory.
-* Using cat command copy the id_rsa private key and exit.
+* Using cat command copy the id_rsa private key and save it in text file and exit.
 * In linux client, change the directory to .ssh/ .Create a new file using vi filename.pem and paste private key into the file.
 
 ![copy keys](n7.JPG)
@@ -184,7 +186,7 @@ Here's a step-by-step guide:
 **1. Generate SSH Key (if not already done):**
 
 * If you haven't already generated an SSH key pair, you can do so by running:
-  ssh-keygen
+  ssh-keygen -t rsa -b 2048
 * Follow the prompts to generate the key pair. This will create a public key (id_rsa.pub) and a private key   (id_rsa) in the ~/.ssh/ directory by default.
 
 ![gen keys](n3.0.JPG)
@@ -194,7 +196,7 @@ Here's a step-by-step guide:
 **2. Copy the Public Key to Remote Machine:**
 
 * Use ssh-copy-id to copy your public key to the remote user's account on the remote machine. 
-* Replace   remote_user and remote_host with the appropriate values:
+* Replace remote_user and remote_host with the appropriate values:
 ssh-copy-id -i ~/.ssh/id_rsa.pub remote_user@remote_host
 * This command will prompt you for the remote user's password.
 
