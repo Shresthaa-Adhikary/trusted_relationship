@@ -5,7 +5,7 @@
 
 ## Windows to Linux connection to same user
 
-To establish an SSH connection from a Linux server to a Windows client using PuTTY, you'll need to follow these steps:
+To establish an SSH connection from a Windows client to Linux server, you'll need to follow these steps:
 
 **1. Generate SSH Key Pair on Linux Server:**
 
@@ -59,7 +59,7 @@ That's it! You've established an SSH connection from your Linux server to your W
 <br>
 
 
-To establish an SSH connection from a Linux server to a Windows client using PuTTY to a different user, you'll need to follow these steps:
+To establish an SSH connection from a Windows client to Linux server to a different user, you'll need to follow these steps:
 
 **1. Generate SSH Key Pair on Linux Server:**
 
@@ -111,7 +111,7 @@ That's it! You've established an SSH connection from you Windows client to linux
 ## Linux to Linux connection to same user
 
 <br>
-To establish a connection from your Linux server to a Linux client using SSH and key-based authentication for the same user account, you'll need to follow these steps:
+To establish a connection from your Linux client to a Linux server using SSH and key-based authentication for the same user account, you'll need to follow these steps:
 
 **1. Generate SSH Key Pair on Server:**
 
