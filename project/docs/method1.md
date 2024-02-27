@@ -144,7 +144,7 @@ Ensure that the user you're connecting to on the Linux server has appropriate pe
 
 <br>
 
-To generate SSH keys on a Linux system and set up trusted connections between systems, you can follow these steps:
+To generate SSH keys on a Linux client and set up trusted connection to linux server, you can follow these steps:
 
 **1. Generate SSH Key Pair:**
 
@@ -152,15 +152,15 @@ To generate SSH keys on a Linux system and set up trusted connections between sy
 ssh-keygen -t rsa -b 2048
 * You'll be prompted to choose the file location to save the keys. Press Enter to save in the default location (~/.ssh/id_rsa) or specify a custom location.
 * It will also prompt you to enter a passphrase for added security. You can leave it blank if you don't want to use a passphrase.
+* Change directory to .ssh/.
+* Copy the public key id_rsa.pub in text file.
 
 ![generate keys](new1.2.JPG)
 
 **2. Copy the Public Key to the Destination Machine:**
 
-* Use ssh-copy-id command to copy the public key to the destination machine. Replace user@hostname with the username and hostname (or IP address) of the destination machine.
-ssh-copy-id user@hostname
-* It will prompt for the password of the destination machine's user account. Enter the password.
-* If ssh-copy-id is not available on your system, you can manually append the content of the public key file (~/.ssh/id_rsa.pub) to the authorized_keys file on the destination machine's ~/.ssh/ directory.
+* Use ssh username@hostname (or IP address) to log into the destination machine. Replace user@hostname with the username and hostname (or IP address) of the destination machine.
+* append the content of the public key file (~/.ssh/id_rsa.pub) to the authorized_keys file on the destination machine's ~/.ssh/ directory.
 
 ![copy key](new1.3.JPG)
 
@@ -168,7 +168,7 @@ ssh-copy-id user@hostname
 
 **3. Test the Connection:**
 
-* Try to SSH into the destination machine. You shouldn't be prompted for a password.
+* Try to SSH into the destination machine.Enter password for the first time. After that you shouldn't be prompted for a password.
 ssh user@hostname
 * You should now be able to log in without entering a password because your SSH key has been added to the authorized keys on the destination machine.
 
@@ -189,30 +189,30 @@ By following these steps, you've generated an SSH key pair, added the public key
 
 <br>
 
-Here are the steps to generate SSH keys on a Linux system and set up trusted connections between different users:
+Here are the steps to generate SSH keys on a Linux system and set up trusted connection with destination Linux of another user :
 
-**1. Generate SSH Key Pair for Each User:**
+**1. Generate SSH Key Pair on linux souce :**
 
-* Each user needs to generate their own SSH key pair. They can do this by running the following command in their terminal:
+* In the linux client, change directory :cd .ssh/.,if not present :ssh localhost and follow the prompt. User needs to generate the SSH key pair. This can be done by running the following command in their terminal:
 ssh-keygen -t rsa -b 2048
 * This command will prompt the user to choose a location to save the keys. Press Enter to save in the default location (~/.ssh/id_rsa) or specify a custom location. It will also ask for an optional passphrase for added security.
+* Change directory :cd .ssh/.
+* Copy the public key :cat id_rsa.pub and save it in a text file. 
 
 ![copy](new1.2-1.JPG)
 
 **2. Share Public Keys:**
 
-* Each user needs to share their public key with the other users they want to establish a trusted connection with. They can do this by copying their public key to the other user's authorized_keys file.
- ssh-copy-id user@hostname
-* Replace user@hostname with the username and hostname (or IP address) of the other user's machine. This command will prompt for the password of the other user's account and copy the public key to their authorized_keys file.
-* If ssh-copy-id is not available, users can manually append the content of their public key file (~/.ssh/id_rsa.pub) to the authorized_keys file in the ~/.ssh/ directory of the other user's machine.
+* ssh username@hostname (or IP address) to destination linux of another user. Replace user@hostname with the username and hostname (or IP address) of the other user's machine. Enter password of the other user's account. 
+* Make a fake call to create .ssh/:ssh localhost and follow the prompt.
+* Pate the public key file (~/.ssh/id_rsa.pub) of the source linux user to the authorized_keys file in the ~/.ssh/ directory of the other user's machine:vi authorized_keys and exit.
 
 ![ssh user2](new2.0.JPG)
 
 **3. Test the Connection:**
 
-* Users can now test the SSH connection between their accounts without being prompted for a password:
-  ssh user@hostname
-* Replace user@hostname with the username and hostname (or IP address) of the other user's machine. Users should now be able to log in without entering a password because their SSH keys have been added to the other user's authorized_keys file.
+* In the source linux, user can now test the SSH connection to detination linux of another user :ssh user@hostname
+* Replace user@hostname with the username and hostname (or IP address) of the other user's machine. Users will be prompted to enter password of destination linux user for the first time. After this we can log in without entering a password because the public key has been added to the other user's authorized_keys file.
 
 ![paste](new2.1.JPG)
 
@@ -224,5 +224,5 @@ ssh-keygen -t rsa -b 2048
 
 ![chmod](new2.01.JPG)
 
-By following these steps, users can generate SSH keys, share their public keys with other users, and establish trusted connections between their accounts on Linux systems.
+By following these steps, user can generate SSH keys, share their public key with another user, and establish trusted connections between their accounts on Linux systems.
 
