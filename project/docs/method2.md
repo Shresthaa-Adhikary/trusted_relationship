@@ -113,14 +113,14 @@ That's it! You've established an SSH connection from you Windows client to linux
 ## Linux to Linux connection to same user
 
 <br>
-To establish a connection from your Linux client to a Linux server using SSH and key-based authentication to the same user, you'll need to follow these steps:
+To establish a trusted connection from your Linux client to a Linux server using SSH and key-based authentication to the same user by importing private key from server, we need to follow these steps:
 
 **1. Generate SSH Key Pair on Server:**
 
-* Log in to your Linux server with password.
+* Log into your Linux server with password.
 * Change directory:cd .ssh/. If not present. ssh localhost and follow the prompt.
 * Run the following command to generate an SSH key pair:
-  ssh-keygen -t rsa -b 1024
+  ssh-keygen -t rsa -b 2048
 * Follow the prompts to generate the key pair. You can press Enter to accept the default file location and an optional passphrase for added security.
 
 ![serverkeygen](n1import.JPG)
@@ -153,7 +153,7 @@ To establish a connection from your Linux server to a Linux client using SSH and
 * Log in to Linux server of another user with the user's password.
 * Change directory:cd .ssh/. If not present. ssh localhost and follow the prompt.
 * Run the following command to generate an SSH key pair:
-  ssh-keygen -t rsa -b 1024
+  ssh-keygen -t rsa -b 2048
 * Follow the prompts to generate the key pair. You can press Enter to accept the default file location and an optional passphrase for added security.
 
 ![keygen](n6.JPG)
@@ -176,48 +176,7 @@ To establish a connection from your Linux server to a Linux client using SSH and
 ![chmod](n9.JPG)
 
 
-## Linux to Linux connection to different user using a tool ssh-copy-id.
 
-
-To establish a passwordless SSH connection from one Linux machine to another for a different user, you can use the ssh-copy-id command. This command is used to copy the public key of the local user to the remote user's authorized_keys file, enabling passwordless SSH authentication.
-
-Here's a step-by-step guide:
-
-**1. Generate SSH Key (if not already done):**
-
-* If you haven't already generated an SSH key pair, you can do so by running:
-  ssh-keygen -t rsa -b 2048
-* Follow the prompts to generate the key pair. This will create a public key (id_rsa.pub) and a private key   (id_rsa) in the ~/.ssh/ directory by default.
-
-![gen keys](n3.0.JPG)
-
-
-
-**2. Copy the Public Key to Remote Machine:**
-
-* Use ssh-copy-id to copy your public key to the remote user's account on the remote machine. 
-* Replace remote_user and remote_host with the appropriate values:
-ssh-copy-id -i ~/.ssh/id_rsa.pub remote_user@remote_host
-* This command will prompt you for the remote user's password.
-
-![copy tool](n3.01.JPG)
-
-**3. Authenticate:**
-
-* Enter the remote user's password when prompted. This will copy your public key to the remote user's authorized_keys file, allowing you to authenticate without a password.
-
-
-
-**4. SSH Connection without Password:**
-
-* After completing the above steps, you should be able to SSH to the remote machine as the remote user without being prompted for a password:
-ssh remote_user@remote_host
-
-
-Remember to replace remote_user and remote_host with the appropriate values for your setup. Additionally, ensure that the remote user has proper permissions set for the .ssh directory (700) and the authorized_keys file (600).
-
-
-![check permission](n3.02.JPG)
 
 
 
