@@ -226,7 +226,7 @@ ssh-keygen -t rsa -b 2048
 By following these steps, user can generate SSH keys, share their public key with another user, and establish trusted connections between their accounts on Linux systems.
 
 
-## Linux to Linux connection to different user using a tool ssh-copy-id.
+## Linux to Linux connection using a tool ssh-copy-id.
 
 
 To establish a passwordless SSH connection from one Linux machine to another for a different user, you can use the ssh-copy-id command. This command is used to copy the public key of the local user to the remote user's authorized_keys file, enabling passwordless SSH authentication.
@@ -235,41 +235,42 @@ Here's a step-by-step guide:
 
 **1. Generate SSH Key :**
 
-* Log into your source Linux client.
+* Log into your Linux client.
 * Change directory:cd .ssh/. If not present . ssh localhost and follow the prompt.
 * Generate an SSH key pair, you can do so by running:
-  ssh-keygen -t rsa -b 2048
+  ssh-keygen -t rsa -b 1024
 * Follow the prompts to generate the key pair. This will create a public key (id_rsa.pub) and a private key
 (id_rsa) in the ~/.ssh/ directory by default.
 * Change directory:cd .ssh/.  
 
-![gen keys](n3.0.JPG)
 
+![sshkeygen](sshkeygen.JPG)
 
 
 **2. Copy the Public Key to Remote Machine:**
 
-* Use ssh-copy-id to copy the public key to linux server of another user's authorized_keys file.
+* Use ssh-copy-id to copy the public key to linux server authorized_keys file.
 * Replace remote_user and remote_host with the appropriate values:
   ssh-copy-id -i id_rsa.pub remote_user@remote_host
-* This command will prompt you for the linux server password of the other user.
+* This command will prompt you for the linux server password.
 
-![copy tool](n3.01.JPG)
+
+![sshcopyid](sshcopyid.JPG)
+
 
 **3. Authenticate:**
 
-* Enter the password when prompted. This will copy the linux client public key to the linux server of the other user's authorized_keys file, allowing you to authenticate without a password.
+* Enter the password when prompted. This will copy the linux client public key to the linux server authorized_keys file, allowing you to authenticate without a password.
 
 
 
 **4. SSH Connection without Password:**
 
-* After completing the above steps, you should be able to SSH to another user's remote machine without being prompted for a password:
+* After completing the above steps, you should be able to SSH to linux server without being prompted for a password:
 ssh remote_user@remote_host_or_IP
 
 
 Remember to replace remote_user and remote_host with the appropriate values for your setup. Additionally, ensure that the remote user has proper permissions set for the .ssh directory (700) and the authorized_keys file (600).
 
 
-![check permission](n3.02.JPG)
-
+![chmod](permissionset.JPG)
