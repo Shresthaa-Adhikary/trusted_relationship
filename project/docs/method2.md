@@ -9,18 +9,18 @@ To establish an SSH connection from a Windows client to Linux server with server
 
 **1. Generate SSH Key Pair on Linux Server:**
 
-* Open putty and login to destination linux server.
-* Change directory: cd .ssh/ .If not present :ssh localhost and follow the prompt. 
-* Run the following command to generate the SSH key pair:
-  ssh-keygen -t rsa -b 1024
-* Follow the prompts to save the keys in the default directory (~/.ssh) or specify a custom location.
+* Launch PuTTY .Enter `username@hostname` in the HostName field . Click on Open.
+* Change directory: `cd .ssh/` .If not present :`ssh localhost` and follow the prompt. 
+* Run the following command to generate the SSH key pair: `ssh-keygen -t rsa -b 1024`
+* Follow the prompts to save the keys in the default directory (~/.ssh).
 
 ![generate keys](import_serverkey_user1.JPG)
 
 **2. Copy the Private Key to the Windows Client:**
 
-* Once the keys are generated, you'll need to copy the public key (id_rsa.pub) and paste it into the authorized_keys file in the .ssh directory using cat command.
-* Use cat command to view and copy the private key to your Windows machine as a text file.
+* Once the keys are generated, you'll need to copy the public key: `cat id_rsa.pub`.
+* Create a file authorized_keys in the directory (~/.ssh) : `vi authorized_keys` and paste the public key.
+* Copy the private key to your Windows machine and save it in a text file: `cat id_rsa`.
 
 ![copy pu](copy_serverprivkey_user1.JPG)
 
@@ -28,17 +28,17 @@ To establish an SSH connection from a Windows client to Linux server with server
 
 * Open PuTTYgen (comes with PuTTY installation) on your Windows machine.
 * Click on the "Load" button and select the private key text file you copied.
-* Once the key is loaded, click on "Save private key" to save it in PuTTY's .ppk format.
+* Once the key is loaded, click on ok and "Save private key" to save it in PuTTY's .ppk format.
 * Close PuTTYgen after saving the private key.
 
 ![save priv key](import_server_privkey_user1.JPG)
 
 **4. Load Private Key to PuTTY:**
 
-* Open PuTTY.
-* In the left-hand Category pane, navigate to Connection -> SSH -> Auth.
+* Launch PuTTY.
+* In the left-hand Category pane, navigate to Connection -> SSH -> Auth -> credential.
 * Click on the "Browse" button and select the private key file (id_rsa.ppk) you generated with PuTTYgen.
-* Go back to the Session category, enter username@hostname or (IP address) of your Linux server in the "Host Name" field, and save the session.
+* Go back to the Session category, enter `username@hostname` or (IP address) of your Linux server in the "Host Name" field, and save the session.
 
 ![priv key](browse_user1_priv.JPG)
 
@@ -47,11 +47,11 @@ To establish an SSH connection from a Windows client to Linux server with server
 **5. Test SSH Connection:**
 
 * Double-click the saved session in PuTTY to initiate the SSH connection.
-* PuTTY should now connect to your Linux server using the SSH key pair you generated.
+* PuTTY should now connect to your Linux server using the server generated key pairs.
 
 ![test connection](user1_serverkey_auth.JPG)
 
-That's it! You've established an SSH connection from your Linux server to your Windows client using PuTTY. Make sure to replace placeholders like your_username and your_windows_ip with your actual values.
+That's it! You've established an SSH connection from your Windows client to Linux server using server generated keys. Make sure to replace placeholders like your_username and hostname_or_IP with your actual values.
 
 
 
@@ -64,26 +64,32 @@ To establish an SSH connection from a Windows client to Linux server to a differ
 
 **1. Generate SSH Key Pair on Linux Server:**
 
-* Log into the remote linux :ssh username@hostname or(IP address).
-*
+* Launch PuTTY. Enter `username@hostname` in the HostName field. Click on Open.
+* Enter password.
+* Switch the user using su command: `su - username` .Replace username with the desired user's username.
+* Enter password of that user.
+* Change directory : `cd .ssh/` .
 * Run the following command to generate the SSH key pair:
-  ssh-keygen -t rsa -b 1024
+  `ssh-keygen -t rsa -b 1024`
 * Follow the prompts to save the keys in the default directory (~/.ssh).
 
 ![user2 keygen](importkeygenuser2.JPG)
 
 **2. Copy the Private Key to the Windows Client:**
 
-* Once the keys are generated, you'll need to use cat command to copy the public key (id_rsa.pub) and paste it into the authorized_keys file of the .ssh directory.
-* Using cat command copy and paste the id_rsa private key to your Windows client as text file.
+* Once the keys are generated, you'll need to copy the public key: `cat id_rsa.pub`.
+* Create a file authorized_keys in the directory (~/.ssh) : `vi authorized_keys` and paste the public key.
+* Copy the private key to your Windows machine and save it in a text file: `cat id_rsa`.
+
+
 
 ![copy priv key](importprivkeyuser2.JPG)
 
 **3. Configure PuTTY on Windows:**
 
 * Open PuTTYgen (comes with PuTTY installation) on your Windows machine.
-* Click on the "Load" button and select the id_rsa.pub file you copied to your Windows desktop.
-* Once the key is loaded, click on "Save private key" to save it in PuTTY's .ppk format.
+* Click on the "Load" button and select the public key (id_rsa.pub) text file you copied.
+* Once the key is loaded, click on ok and "Save private key" to save it in PuTTY's .ppk format.
 * Close PuTTYgen after saving the private key.
 
 ![user2 priv key](loadprivimport_key_user2.JPG)
@@ -91,9 +97,9 @@ To establish an SSH connection from a Windows client to Linux server to a differ
 **4. Load Private Key to PuTTY:**
 
 * Open PuTTY.
-* In the left-hand Category pane, navigate to Connection -> SSH -> Auth.
+* In the left-hand Category pane, navigate to Connection -> SSH -> Auth -> credential.
 * Click on the "Browse" button and select the private key file (id_rsa.ppk) you generated with PuTTYgen.
-* Go back to the Session category, enter the username@hostname or (IP address) of the other user in the "Host Name" field.
+* Go back to the Session category, enter the `username@hostname` or (IP address) in the "Host Name" field.
 
 
 ![load user2 privkey](browse_user2_privkey.JPG)
@@ -101,7 +107,7 @@ To establish an SSH connection from a Windows client to Linux server to a differ
 **5. Test SSH Connection:**
 
 * Click on open.
-* PuTTY should now connect your Windows client to the other linux user without the password.
+* PuTTY should now connect your Windows client to the other Linux user without the password.
 
 
 ![user2 auth](user2_import_auth.JPG)
@@ -117,27 +123,37 @@ To establish a trusted connection from your Linux client to a Linux server using
 
 **1. Generate SSH Key Pair on Server:**
 
-* Log into your Linux server with password.
-* Change directory:cd .ssh/. If not present. ssh localhost and follow the prompt.
-* Run the following command to generate an SSH key pair:
-  ssh-keygen -t rsa -b 2048
+* Launch PuTTY. Enter `username@hostname` in the HostName field. Click on Open.
+* Enter password.
+* `ssh username@hostname_or_IP` to login to linux server.
+* Login with password.
+* Change directory: `cd .ssh/` . If not present. `ssh localhost` and follow the prompt.
+* Run the following command to generate an SSH key pair: `ssh-keygen -t rsa -b 1024` 
 * Follow the prompts to generate the key pair. You can press Enter to accept the default file location and an optional passphrase for added security.
 
 ![serverkeygen](n1import.JPG)
 
 **2. Copy the Private Key to Client:**
 
-* Once the keys are generated, you'll need to use cat command to copy the public key (id_rsa.pub) and paste it into the authorized_keys file of the .ssh directory.
-* Using cat command copy the id_rsa private key and exit.
-* In linux client, change the directory to .ssh/ .Create a new file using vi filename.pem and paste private key into the file.
+* Change directory: `cd .ssh/` if not changed.
+* `ls` to list file in .ssh/ directory.
+* Once the keys are generated, you'll need to copy the public key: `cat id_rsa.pub`.
+* Create a file or edit authorized_keys in the directory (~/.ssh) : `vi authorized_keys` and paste the public key.
+* Set permission `chmod 600 authorized_keys` file.
+* Copy the private key : `cat id_rsa`
+* `ssh username@hostname_or_IP` to login to linux client.
+* Enter password:
+* Change directory: `cd .ssh/` . 
+* Open vi editor and paste the private key : `vi serverprivatekey.pem`
+
 
 ![cat pub privkey](n3.JPG)
 
 
 **3. Test SSH Connection:**
 
-* Login with password once, then ssh -i filename.pem username@hostname
-* Set permission using chmod 600 authorized_keys.
+* `ssh -i filename.pem username@hostname`
+* This command will prompt to enter the password  on first login. Enter password.
 
   ![test conn](n4.JPG)
 
@@ -146,34 +162,46 @@ To establish a trusted connection from your Linux client to a Linux server using
 
 <br>
 
-To establish a connection from your Linux server to a Linux client using SSH and key-based authentication for the different user account, you'll need to follow these steps:
+To establish a connection from your Linux client to a Linux server using SSH and key-based authentication for a different user , you'll need to follow these steps:
 
 **1. Generate SSH Key Pair on Server:**
 
-* Log in to Linux server of another user with the user's password.
-* Change directory:cd .ssh/. If not present. ssh localhost and follow the prompt.
-* Run the following command to generate an SSH key pair:
-  ssh-keygen -t rsa -b 2048
+* Launch PuTTY. Enter `username@hostname` in the HostName field. Click on Open.
+* Enter password.
+* `ssh username@hostname_or_IP` to login to linux server of another user.
+* Login with password of other user.
+* Change directory: `cd .ssh/` . If not present. `ssh localhost` and follow the prompt.
+* Run the following command to generate an SSH key pair: `ssh-keygen -t rsa -b 1024` 
 * Follow the prompts to generate the key pair. You can press Enter to accept the default file location and an optional passphrase for added security.
 
-![keygen](n6.JPG)
+![login](q1.JPG)
+
+![keygen](q2.JPG)
+
+
 
 **2. Copy the Private Key to Client:**
 
-* Once the keys are generated, you'll need to use cat command to copy the public key (id_rsa.pub) and paste it into the authorized_keys file of the .ssh directory.
-* Using cat command copy the id_rsa private key and save it in text file and exit.
-* In linux client, change the directory to .ssh/ .Create a new file using vi filename.pem and paste private key into the file.
+* Change directory: `cd .ssh/` if not changed.
+* Once the keys are generated, you'll need to copy the public key: `cat id_rsa.pub`.
+* Create a file or edit authorized_keys in the directory (~/.ssh) : `vi authorized_keys` and paste the public key.
+* Copy the private key : `cat id_rsa`
+* `ssh username@hostname_or_IP` to login to linux client.
+* Enter password:
+* Change directory: `cd .ssh/` . 
+* Open vi editor and paste the private key : `vi serverprivkey.pem`
 
-![copy keys](n7.JPG)
+![privkey](q3.JPG)
+
+![test](q5.JPG)
+
 
 **3. Test SSH Connection:**
 
-![test conn](n8.JPG)
+* `ssh -i serverprivatekey.pem username@hostname` to login to linux server to different user.
+* This command will prompt to enter the password  on first login. Enter password.
 
-* You will be prompted to Login with password for the first time, then ssh -i filename.pem username@hostname
-* Set permission using chmod 600 authorized_keys.
 
-![chmod](n9.JPG)
 
 
 
