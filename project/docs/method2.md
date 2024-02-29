@@ -70,6 +70,8 @@ That's it! You've established an SSH connection from your Windows client to Linu
 ![type:video](importwindowstolinux_3.mp4)
 
 
+<br>
+
 
 ## Windows to Linux connection to different user
 
@@ -141,6 +143,8 @@ That's it! You've established an SSH connection from you Windows client to linux
 ![type:video](importwintolinuxuser2_4.mp4)
 
 
+<br>
+
 
 ## Linux to Linux connection to same user
 
@@ -192,6 +196,8 @@ To establish a trusted connection from your Linux client to a Linux server using
 
 ![type:video](linuxtolinuximport_7.mp4)
 
+
+<br>
 
 
 ## Linux to Linux connection to different user

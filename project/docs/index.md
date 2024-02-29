@@ -21,5 +21,7 @@ Linux to Linux:
 
 > The process is similar when establishing trust between Linux systems. You generate a key pair on the source Linux machine, transfer the public key to the target Linux machine, and add it to the authorized_keys file of the target user account.
 Once the public key is added, you can authenticate from the source Linux machine to the target Linux machine using the private key.
+
+
 In both cases, the key-based authentication mechanism ensures secure communication between the systems without requiring manual password entry each time a connection is made.
 

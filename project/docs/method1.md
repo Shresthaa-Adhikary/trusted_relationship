@@ -70,6 +70,8 @@ Ensure that the user you're connecting as, on the Linux server has appropriate p
 ![type:video](windowstolinux1.mp4)
 
 
+<br>
+
 
 ## **Windows to Linux connection to different user**
 
@@ -136,6 +138,8 @@ Ensure that the user you're connecting to on the Linux server has appropriate pe
 ![type:video](windowstolinux2.mp4)
 
 
+<br>
+
 
 ## **Linux to Linux connection to same user**
 
@@ -200,6 +204,8 @@ By following these steps, you've generated an SSH key pair, added the public key
 ![type:video](linuxtolinux_5.mp4)
 
 
+<br>
+
 
 ## **Linux to Linux connection to different user**
 
@@ -253,6 +259,8 @@ By following these steps, user can generate SSH keys, share their public key wit
 
 ![type:video](linuxtolinuxuser2_6.mp4)
 
+
+<br>
 
 
 ## Linux to Linux connection using a tool ssh-copy-id.
