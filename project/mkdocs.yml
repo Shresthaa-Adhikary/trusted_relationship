@@ -1,7 +1,14 @@
 site_name: Trusted relationship
 extra_css:
   - style.css
- 
+plugins: 
+  - mkdocs-video:
+      is_video: True
+      video_muted: True
+      video_controls: True
+      css_style:
+           width: "100%"
+           position: relative
 nav:
   - Home: 'index.md'
   - About: 'about.md'
