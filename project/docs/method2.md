@@ -251,10 +251,10 @@ To establish a connection from your Linux client to a Linux server using SSH and
 * This command will prompt to enter the password  on first login. Enter password.
 
 
-**Video for linux to linux trusted relationship to same user using ssh-keygen**
+**Video for linux to linux trusted relationship to different user using ssh-keygen**
 
 
-![type:video](linuxtolinuxuser2_6.mp4)
+![type:video](linuxtolinuximportuser2_8.mp4)
 
 
 
