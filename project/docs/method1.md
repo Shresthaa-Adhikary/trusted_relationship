@@ -1,8 +1,9 @@
-<br> 
 
-# Export Method
 
-<br>
+# Export Method  
+
+
+
 
 ## **Windows to Linux connection to same user**
 
@@ -67,10 +68,9 @@ Ensure that the user you're connecting as, on the Linux server has appropriate p
 **Video for windows to linux trusted relationship to same user**
 
 
-![type:video](windowstolinux1.mp4)
+![type:video](windowstolinux1.mp4)  
 
 
-<br>
 
 
 ## **Windows to Linux connection to different user**
@@ -135,10 +135,9 @@ Ensure that the user you're connecting to on the Linux server has appropriate pe
 **Video for windows to linux trusted relationship to different user**
 
 
-![type:video](windowstolinux2.mp4)
+![type:video](windowstolinux2.mp4)  
 
 
-<br>
 
 
 ## **Linux to Linux connection to same user**
@@ -201,10 +200,9 @@ By following these steps, you've generated an SSH key pair, added the public key
 **Video for linux to linux trusted relationship to same user**
 
 
-![type:video](linuxtolinux_5.mp4)
+![type:video](linuxtolinux_5.mp4)  
 
 
-<br>
 
 
 ## **Linux to Linux connection to different user**
@@ -257,10 +255,9 @@ By following these steps, user can generate SSH keys, share their public key wit
 **Video for linux to linux trusted relationship to different user**
 
 
-![type:video](linuxtolinuxuser2_6.mp4)
+![type:video](linuxtolinuxuser2_6.mp4)  
 
 
-<br>
 
 
 ## Linux to Linux connection using a tool ssh-copy-id.
@@ -314,4 +311,4 @@ Remember to replace remote_user and remote_host with the appropriate values for 
 **Video for linux to linux trusted relationship using a tool ssh-copy-id to same user**
 
 
-![type:video](linuxtolinuxsshcopyid_9.mp4)
+![type:video](linuxtolinuxsshcopyid_9.mp4)  

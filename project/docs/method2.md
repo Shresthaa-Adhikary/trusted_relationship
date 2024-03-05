@@ -1,8 +1,9 @@
-<br>
 
-# Import Method
 
-<br>
+# Import Method  
+
+
+
 
 ## Windows to Linux connection to same user
 
@@ -255,6 +256,7 @@ To establish a connection from your Linux client to a Linux server using SSH and
 
 
 ![type:video](linuxtolinuximportuser2_8.mp4)
+
 
 
 
