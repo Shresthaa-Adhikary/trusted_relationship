@@ -1,12 +1,7 @@
 
-
 # Export Method  
 
-
-
-
 ## **Windows to Linux connection to same user**
-
 
 To connect from a Windows client to a Linux server using PuTTY and a key pair generated with PuTTYgen, follow these steps:
 
@@ -17,9 +12,7 @@ To connect from a Windows client to a Linux server using PuTTY and a key pair ge
 * Follow the instructions to generate the key pair.
 * Save the private key (.ppk).
 
-
 ![puttygen key generation](puttygen_key_generation.JPG)
-
 
 **2. Log in to your Linux server.**
 
@@ -31,10 +24,8 @@ To connect from a Windows client to a Linux server using PuTTY and a key pair ge
 * Save and close the file.
 * Set Permissions on the authorized_keys file:
  `chmod 600 authorized_keys`
- 
 
 ![public key paste](paste_pub_key_user1.JPG)
-
 
 **3. Configure PuTTY to Use the Private Key:**
 
@@ -42,17 +33,13 @@ To connect from a Windows client to a Linux server using PuTTY and a key pair ge
 * In the "Category" pane, navigate to "Connection" -> "SSH" -> "Auth" ->"credential".
 * Browse and select the private key (.ppk) file you generated with PuTTYgen.
 
-
 ![enter private key](browsing_priv_key_user1.JPG)
-
 
 * Go back to the "Session" category.
 * Enter the `username@hostname` of your Linux server.
 * Save these settings if you want to reuse them.
 
-
 ![enter username](2.PNG)
-
 
 **4. Connect to Linux Server:**
 
@@ -61,20 +48,13 @@ To connect from a Windows client to a Linux server using PuTTY and a key pair ge
 
 Ensure that the user you're connecting as, on the Linux server has appropriate permissions and access rights. If you encounter any issues, double-check the file permissions and ensure the public key is correctly added to the authorized_keys file.
 
-
-![user1 login](puttygen_user1_authen.JPG) 
-
+![user1 login](puttygen_user1_authen.JPG)
 
 **Video for windows to linux trusted relationship to same user**
 
-
 ![type:video](windowstolinux1.mp4)  
 
-
-
-
 ## **Windows to Linux connection to different user**
-
 
 To connect from a Windows client to a Linux server using PuTTY and a key pair generated with PuTTYgen to a different user, you'll need to follow these steps:
 
@@ -85,9 +65,7 @@ To connect from a Windows client to a Linux server using PuTTY and a key pair ge
 * Follow the instructions to generate the key pair.
 * Save the private key (.ppk).
 
-
 ![key generation](puttygen_key_generation-1.JPG)
-
 
 **2. Add Public Key to Linux User's authorized_keys file:**
 
@@ -102,9 +80,7 @@ To connect from a Windows client to a Linux server using PuTTY and a key pair ge
 * Set Permissions on the authorized_keys file:
   `chmod 600 authorized_keys`
 
-
 ![paste public key](new1.12.JPG)
-
 
 **3. Configure PuTTY to Use the Private Key:**
 
@@ -116,32 +92,22 @@ To connect from a Windows client to a Linux server using PuTTY and a key pair ge
 * Specify the port if it's not the default SSH port (22).
 * Save these settings if you want to reuse them.
 
-
 ![user2 login](logging_user2.JPG)
-
 
 **4. Connect to Linux Server:**
 
 * Click on "Open" to establish the SSH connection.
 * PuTTY will use the private key for authentication, and if everything is configured correctly, you can login to another username@hostname .
 
-
 ![authentication user2](authent_user2.JPG)
-
 
 Ensure that the user you're connecting to on the Linux server has appropriate permissions and access rights. If you encounter any issues, double-check the file permissions and ensure the public key is correctly added to the authorized_keys file for the other user.
 
-
 **Video for windows to linux trusted relationship to different user**
-
 
 ![type:video](windowstolinux2.mp4)  
 
-
-
-
 ## **Linux to Linux connection to same user**
-
 
 To generate SSH keys on a Linux client and set up trusted relationship to linux server, we can follow these steps:
 
@@ -154,9 +120,7 @@ To generate SSH keys on a Linux client and set up trusted relationship to linux 
 * Change directory: `cd .ssh/` or `ssh localhost` if directory is not present.
 * Copy the public key id_rsa.pub :`cat id_rsa.pub`.
 
-
 ![generate keys](new1.2.JPG)
-
 
 **2. Copy the Public Key to the Destination Machine:**
 
@@ -166,23 +130,16 @@ To generate SSH keys on a Linux client and set up trusted relationship to linux 
 * Create authorized_keys file in (~/.ssh/) :`vi authorized_keys`.
 * Copy the content of the public key file (~/.ssh/id_rsa.pub) to the authorized_keys file on the linux server  and exit.
 
-
 ![copy key](new1.3.JPG)
 
-
-
-
 ![paste](new1.6.JPG)
-
 
 **3. Test the Connection:**
 
 * Try to SSH into the linux server:`ssh user@hostname`
 * You should now be able to log into the linux server without entering a password.
 
-
 ![ssh](new1.7.JPG)
-
 
 **4. Set permission:**
 
@@ -190,23 +147,15 @@ To generate SSH keys on a Linux client and set up trusted relationship to linux 
   `chmod 700 ~/.ssh/`
   `chmod 600 ~/.ssh/authorized_keys`
 
-
  ![chmod](new2.03.JPG)
-
 
 By following these steps, you've generated an SSH key pair, added the public key to the linux server, and established a trusted relationship from linux client to linux server.
 
-
 **Video for linux to linux trusted relationship to same user**
-
 
 ![type:video](linuxtolinux_5.mp4)  
 
-
-
-
 ## **Linux to Linux connection to different user**
-
 
 Here are the steps to generate SSH keys on a Linux client and set up trusted relationship with Linux server to another user :
 
@@ -215,21 +164,17 @@ Here are the steps to generate SSH keys on a Linux client and set up trusted rel
 * Launch PuTTY, Enter HostName and Click open, Enter password, Change directory : `cd .ssh/`., if not present : `ssh localhost` and follow the prompt. Run the following command: `ssh-keygen -t rsa -b 1024` to generate the keys.
 * This command will prompt the user to choose a location to save the keys. Press Enter to save in the default location (~/.ssh/id_rsa). It will also ask for an optional passphrase for added security.
 * Change directory:`cd .ssh/` if not changed.
-* Copy the public key :`cat id_rsa.pub`. 
-
+* Copy the public key :`cat id_rsa.pub`.
 
 ![copy](new1.2-1.JPG)
 
-
 **2. Share Public Keys:**
 
-* `ssh username@hostname_or_IP` to linux server of another user. Replace user@hostname with the username and hostname (or IP address) of the other linux user. Enter password of the other user. 
+* `ssh username@hostname_or_IP` to linux server of another user. Replace user@hostname with the username and hostname (or IP address) of the other linux user. Enter password of the other user.
 * Change directory:`cd .ssh/` .If not present make a fake call to create .ssh/:`ssh localhost` and follow the prompt.
 * Pate the public key of the linux client to the authorized_keys file in the ~/.ssh/ directory of the other user's linux server:`vi authorized_keys` and exit.
 
-
 ![ssh user2](new2.0.JPG)
-
 
 **3. Test the Connection:**
 
@@ -238,30 +183,21 @@ Here are the steps to generate SSH keys on a Linux client and set up trusted rel
 
 ![paste](new2.1.JPG)
 
-
 **4. Set permission:**
 
 * Ensure the correct permissions are set:
   `chmod 700 ~/.ssh/`
   `chmod 600 ~/.ssh/authorized_keys`
 
-
 ![chmod](new2.01.JPG)
-
 
 By following these steps, user can generate SSH keys, share their public key with another user, and establish trusted relationship from linux client to linux server to another user.
 
-
 **Video for linux to linux trusted relationship to different user**
-
 
 ![type:video](linuxtolinuxuser2_6.mp4)  
 
-
-
-
-## Linux to Linux connection using a tool ssh-copy-id.
-
+## Linux to Linux connection using a tool ssh-copy-id
 
 To establish SSH connection from Linux client to Linux server, you can use the ssh-copy-id command. This command is used to copy the public key of the linux client to the linux server authorized_keys file, enabling SSH authentication without the password.
 
@@ -276,9 +212,7 @@ Here's a step-by-step guide:
 (id_rsa) in the ~/.ssh/ directory by default.
 * Change directory:`cd .ssh/` if not changed.  
 
-
 ![sshkeygen](sshkeygen.JPG)
-
 
 **2. Copy the Public Key to Remote Machine:**
 
@@ -287,9 +221,7 @@ Here's a step-by-step guide:
  `ssh-copy-id -i id_rsa.pub remote_user@remote_host_or_IP`.
 * This command will prompt you for the linux server password.
 
-
 ![sshcopyid](sshcopyid.JPG)
-
 
 **3. Authenticate:**
 
@@ -299,16 +231,10 @@ Here's a step-by-step guide:
 
 * After completing the above steps, you should be able to SSH to linux server without being prompted for a password: `ssh remote_user@remote_host_or_IP`
 
-
 Remember to replace remote_user and remote_host with the appropriate values for your setup. Additionally, ensure that the remote user has proper permissions set for the .ssh directory (700) and the authorized_keys file (600).
-
 
 ![chmod](permissionset.JPG)
 
-
-
-
 **Video for linux to linux trusted relationship using a tool ssh-copy-id to same user**
-
 
 ![type:video](linuxtolinuxsshcopyid_9.mp4)  
