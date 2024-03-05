@@ -49,10 +49,11 @@ To connect from a Windows client to a Linux server using PuTTY and a key pair ge
 Ensure that the user you're connecting as, on the Linux server has appropriate permissions and access rights. If you encounter any issues, double-check the file permissions and ensure the public key is correctly added to the authorized_keys file.
 
 ![user1 login](puttygen_user1_authen.JPG)
+ 
 
-**Video for windows to linux trusted relationship to same user**
+!video[ Video for windows to linux trusted relationship to same user ](windowstolinux1.mp4)  
 
-![type:video](windowstolinux1.mp4)  
+
 
 ## **Windows to Linux connection to different user**
 
@@ -103,9 +104,10 @@ To connect from a Windows client to a Linux server using PuTTY and a key pair ge
 
 Ensure that the user you're connecting to on the Linux server has appropriate permissions and access rights. If you encounter any issues, double-check the file permissions and ensure the public key is correctly added to the authorized_keys file for the other user.
 
-**Video for windows to linux trusted relationship to different user**
 
-![type:video](windowstolinux2.mp4)  
+!video[ Video for windows to linux trusted relationship to different user ](windowstolinux2.mp4)  
+
+
 
 ## **Linux to Linux connection to same user**
 
@@ -151,9 +153,10 @@ To generate SSH keys on a Linux client and set up trusted relationship to linux 
 
 By following these steps, you've generated an SSH key pair, added the public key to the linux server, and established a trusted relationship from linux client to linux server.
 
-**Video for linux to linux trusted relationship to same user**
 
-![type:video](linuxtolinux_5.mp4)  
+!video[ Video for linux to linux trusted relationship to same user ](linuxtolinux_5.mp4)  
+
+
 
 ## **Linux to Linux connection to different user**
 
@@ -193,9 +196,10 @@ Here are the steps to generate SSH keys on a Linux client and set up trusted rel
 
 By following these steps, user can generate SSH keys, share their public key with another user, and establish trusted relationship from linux client to linux server to another user.
 
-**Video for linux to linux trusted relationship to different user**
 
-![type:video](linuxtolinuxuser2_6.mp4)  
+!video[ Video for linux to linux trusted relationship to different user ](linuxtolinuxuser2_6.mp4)  
+
+
 
 ## Linux to Linux connection using a tool ssh-copy-id
 
@@ -235,6 +239,6 @@ Remember to replace remote_user and remote_host with the appropriate values for 
 
 ![chmod](permissionset.JPG)
 
-**Video for linux to linux trusted relationship using a tool ssh-copy-id to same user**
+ 
 
-![type:video](linuxtolinuxsshcopyid_9.mp4)  
+!video[ Video for linux to linux trusted relationship using a tool ssh-copy-id to same user ](linuxtolinuxsshcopyid_9.mp4)

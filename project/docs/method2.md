@@ -1,7 +1,9 @@
-
+  
 # Import Method  
 
-## Windows to Linux connection to same user
+  
+## Windows to Linux connection to same user  
+  
 
 To establish an SSH connection from a Windows client to Linux server with server keys, you'll need to follow these steps:
 
@@ -49,11 +51,9 @@ To establish an SSH connection from a Windows client to Linux server with server
 
 That's it! You've established an SSH connection from your Windows client to Linux server using server generated keys. Make sure to replace placeholders like your_username and hostname_or_IP with your actual values.
 
-**Video for windows to linux trusted relationship to same user using ssh-keygen**
 
-![type:video](importwindowstolinux_3.mp4)
+!video[ Video for windows to linux trusted relationship to same user using ssh-keygen ](importwindowstolinux_3.mp4)  
 
-<br>
 
 ## Windows to Linux connection to different user
 
@@ -107,12 +107,9 @@ To establish an SSH connection from a Windows client to Linux server to a differ
 
 That's it! You've established an SSH connection from you Windows client to linux server to another user.
 
-**Video for windows to linux trusted relationship to different user using ssh-keygen**
+!video[ Video for windows to linux trusted relationship to different user using ssh-keygen ](importwintolinuxuser2_4.mp4)
 
-![type:video](importwintolinuxuser2_4.mp4)
-
-<br>
-
+  
 ## Linux to Linux connection to same user
 
 To establish a trusted connection from your Linux client to a Linux server using SSH and key-based authentication to the same user by importing private key from server, we need to follow these steps:
@@ -151,12 +148,10 @@ To establish a trusted connection from your Linux client to a Linux server using
 
   ![test conn](n4.JPG)
 
-**Video for linux to linux trusted relationship to same user using ssh-keygen**
 
-![type:video](linuxtolinuximport_7.mp4)
+!video[ Video for linux to linux trusted relationship to same user using ssh-keygen ](linuxtolinuximport_7.mp4)  
 
-<br>
-
+  
 ## Linux to Linux connection to different user
 
 To establish a connection from your Linux client to a Linux server using SSH and key-based authentication for a different user , you'll need to follow these steps:
@@ -194,7 +189,8 @@ To establish a connection from your Linux client to a Linux server using SSH and
 
 * `ssh -i serverprivatekey.pem username@hostname` to login to linux server to different user.
 * This command will prompt to enter the password  on first login. Enter password.
+  
 
-**Video for linux to linux trusted relationship to different user using ssh-keygen**
+!video[ Video for linux to linux trusted relationship to different user using ssh-keygen ](linuxtolinuximportuser2_8.mp4)  
 
-![type:video](linuxtolinuximportuser2_8.mp4)
+  
